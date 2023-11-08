@@ -3,7 +3,7 @@
 <h3 align="center">A passionate Full-Stack/Back-End developer</h3>
 <img align="right" alt="Coding" width="400" src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif">
 
-- 🔭 I’m currently working on [MarketCarsApp for C# portfolio](https://github.com/IvoToceny/Csharp_Portfolio/tree/master/MarketCarsApp)
+- 🔭 I’m currently working on [MarketCarsApp](https://github.com/IvoToceny/Csharp_Portfolio/tree/master/MarketCarsApp)
 
 - 🌱 I’m currently learning **ASP.NET, Front-End, Azure**
 
