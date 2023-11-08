@@ -5,7 +5,7 @@
 
 - 🌱 I’m currently learning **ASP.NET, Front-End, Azure**
 
-- 📫 How to reach me **ivo6770@gmail.com**
+- 📫 How to reach me [Linked-in profile](https://www.linkedin.com/in/ivo-točený-a78051188/)
 
 <h3 align="left">Languages and Tools:</h3>
 <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a>
