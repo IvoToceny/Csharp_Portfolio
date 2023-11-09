@@ -1,8 +1,11 @@
+using MarketCarsAPI.Models.BlobStorage;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<FileService>();
 
 var app = builder.Build();
 
