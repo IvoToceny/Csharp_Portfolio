@@ -18,6 +18,7 @@ namespace MarketCarsAPI.Controllers
 
         // GET: api/<FilesController>
         [HttpGet]
+        [ResponseCache(Duration = 10, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> Get()
         {
             var result = await fileService.ListAsync();

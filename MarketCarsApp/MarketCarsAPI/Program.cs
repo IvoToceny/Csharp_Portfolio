@@ -11,6 +11,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<FileService>();
 
+builder.Services.AddResponseCaching();
+
 builder.AddHealthCheckServices();
 
 builder.Services.AddMemoryCache();
@@ -25,6 +27,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseResponseCaching();
 
 app.UseAuthorization();
 
