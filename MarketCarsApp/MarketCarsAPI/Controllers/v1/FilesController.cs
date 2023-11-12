@@ -1,12 +1,14 @@
-﻿using MarketCarsAPI.Models.BlobStorage;
+﻿using Asp.Versioning;
+using MarketCarsAPI.Models.BlobStorage;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace MarketCarsAPI.Controllers
+namespace MarketCarsAPI.Controllers.v1
 {
-    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
     public class FilesController : ControllerBase
     {
         private FileService fileService { get; }
