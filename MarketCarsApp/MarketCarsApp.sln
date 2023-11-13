@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketCarsAPI", "MarketCarsAPI\MarketCarsAPI.csproj", "{A1FD6EFD-4674-4B93-8FDE-56C48B0FCA33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketCarsAPI", "MarketCarsAPI\MarketCarsAPI.csproj", "{A1FD6EFD-4674-4B93-8FDE-56C48B0FCA33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketCarsLibrary", "MarketCarsLibrary\MarketCarsLibrary.csproj", "{C2214CD8-4D2B-40EE-B783-86FEA0D92400}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MarketCarsDB", "MarketCarsDB\MarketCarsDB.sqlproj", "{4C70E76A-8C57-4C98-99F2-151B0D2D0875}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,16 @@ Global
 		{A1FD6EFD-4674-4B93-8FDE-56C48B0FCA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1FD6EFD-4674-4B93-8FDE-56C48B0FCA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1FD6EFD-4674-4B93-8FDE-56C48B0FCA33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2214CD8-4D2B-40EE-B783-86FEA0D92400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2214CD8-4D2B-40EE-B783-86FEA0D92400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2214CD8-4D2B-40EE-B783-86FEA0D92400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2214CD8-4D2B-40EE-B783-86FEA0D92400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C70E76A-8C57-4C98-99F2-151B0D2D0875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C70E76A-8C57-4C98-99F2-151B0D2D0875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C70E76A-8C57-4C98-99F2-151B0D2D0875}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4C70E76A-8C57-4C98-99F2-151B0D2D0875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C70E76A-8C57-4C98-99F2-151B0D2D0875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C70E76A-8C57-4C98-99F2-151B0D2D0875}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

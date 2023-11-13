@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[Cars]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[OwnerId] INT NOT NULL,
+	CONSTRAINT FK_Cars_OwnerId FOREIGN KEY (OwnerId) REFERENCES Users(Id),
+	[ForSale] BIT NOT NULL,
+	[Name] NVARCHAR(100) NOT NULL,
+	[Manufacturer] NVARCHAR(50) NOT NULL,
+	[Bodywork] NVARCHAR(20) NOT NULL,
+	[Color] NVARCHAR(20) NOT NULL,
+	[EngineType] NVARCHAR(50) NULL,
+	[HorsePower] NVARCHAR(20) NULL,
+	[Mileage] INT NOT NULL,
+	[CarState] NVARCHAR(20) NULL,
+	[Price] MONEY NULL
+)
