@@ -9,8 +9,7 @@
     <ProjectGuid>{4c70e76a-8c57-4c98-99f2-151b0d2d0875}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>MarketCarsDB</RootNamespace>
     <AssemblyName>MarketCarsDB</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -48,7 +47,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -66,5 +64,22 @@
     <Build Include="dbo\Tables\Cars.sql" />
     <Build Include="dbo\Tables\Images.sql" />
     <Build Include="dbo\Tables\Services.sql" />
+    <Build Include="dbo\Stored Procedures\spUsers_GetUser.sql" />
+    <Build Include="dbo\Stored Procedures\spUsers_Create.sql" />
+    <Build Include="dbo\Stored Procedures\spUsers_UpdateById.sql" />
+    <Build Include="dbo\Stored Procedures\spUsers_DeleteById.sql" />
+    <Build Include="dbo\Stored Procedures\spCars_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spCars_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\spCars_CreateForSale.sql" />
+    <Build Include="dbo\Stored Procedures\spCars_UpdateById.sql" />
+    <Build Include="dbo\Stored Procedures\spCars_DeleteById.sql" />
+    <Build Include="dbo\Stored Procedures\spImages_Create.sql" />
+    <Build Include="dbo\Stored Procedures\spImages_GetFirstByCarId.sql" />
+    <Build Include="dbo\Stored Procedures\spImages_GetAllByCarId.sql" />
+    <Build Include="dbo\Stored Procedures\spImages_DeleteById.sql" />
+    <Build Include="dbo\Stored Procedures\spServices_Create.sql" />
+    <Build Include="dbo\Stored Procedures\spServices_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\spServices_GetAllByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\spServices_UpdateById.sql" />
   </ItemGroup>
 </Project>
