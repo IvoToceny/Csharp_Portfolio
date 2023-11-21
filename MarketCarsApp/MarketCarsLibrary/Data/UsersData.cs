@@ -50,7 +50,7 @@ public class UsersData
 
         p.Add("Id", usersModel.Id);
         p.Add("UserName", usersModel.UserName);
-        p.Add("Password", usersModel.Password);
+        p.Add("Password", usersModel.PassWord);
         p.Add("Name", usersModel.Name);
         p.Add("Address", usersModel.Address);
         p.Add("Email", usersModel.Email);
