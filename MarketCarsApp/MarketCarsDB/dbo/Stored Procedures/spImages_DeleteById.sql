@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spImages_DeleteByPath]
+﻿CREATE PROCEDURE [dbo].[spImages_DeleteById]
 	@Id INT NOT NULL
 AS
 BEGIN

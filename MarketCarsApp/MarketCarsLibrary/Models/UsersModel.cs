@@ -1,6 +1,6 @@
 ﻿namespace MarketCarsLibrary.Models;
 
-public class Users
+public class UsersModel
 {
     //[Id] INT NOT NULL PRIMARY KEY IDENTITY,
     public int Id { get; set; }
@@ -9,7 +9,7 @@ public class Users
     public string? UserName { get; set; }
 
     //[PassWord] NVARCHAR(50) NOT NULL,
-    public string? Password { get; set; }
+    public string? PassWord { get; set; }
 
     //[Name] NVARCHAR(50) NOT NULL,
     public string? Name { get; set; }

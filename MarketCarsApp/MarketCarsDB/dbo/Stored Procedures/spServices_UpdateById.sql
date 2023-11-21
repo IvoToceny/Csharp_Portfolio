@@ -1,11 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[spServices_UpdateStateById]
 	@Id INT NOT NULL,
-	@OrderDate DATETIME2,
-	@ServiceDay DATETIME2,
-	@ServiceTime NVARCHAR(50), 
-	@ServiceFinishEstimate DATETIME2, 
+	@OrderDate DATETIME2 NOT NULL,
+	@ServiceDay DATETIME2 NOT NULL,
+	@ServiceTime NVARCHAR(50) NOT NULL, 
+	@ServiceFinishEstimate DATETIME2 NOT NULL, 
 	@ServiceDescription NVARCHAR(400) NULL,
-	@StateOfOrder NVARCHAR(50)
+	@StateOfOrder NVARCHAR(50) NOT NULL
 AS
 BEGIN
 	set nocount on;

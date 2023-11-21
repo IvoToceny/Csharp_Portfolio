@@ -1,6 +1,6 @@
 ﻿namespace MarketCarsLibrary.Models;
 
-public class Services
+public class ServicesModel
 {
     //[Id] INT NOT NULL PRIMARY KEY IDENTITY
     public int Id { get; set; }

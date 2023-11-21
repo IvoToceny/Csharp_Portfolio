@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spCars_CreateForSale]
+﻿CREATE PROCEDURE [dbo].[spCars_Create]
 	@OwnerId INT NOT NULL,
 	@ForSale BIT NOT NULL,
 	@Name NVARCHAR(100) NOT NULL,

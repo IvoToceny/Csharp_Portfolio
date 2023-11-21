@@ -64,13 +64,13 @@
     <Build Include="dbo\Tables\Cars.sql" />
     <Build Include="dbo\Tables\Images.sql" />
     <Build Include="dbo\Tables\Services.sql" />
-    <Build Include="dbo\Stored Procedures\spUsers_GetUser.sql" />
+    <Build Include="dbo\Stored Procedures\spUsers_GetUserById.sql" />
     <Build Include="dbo\Stored Procedures\spUsers_Create.sql" />
     <Build Include="dbo\Stored Procedures\spUsers_UpdateById.sql" />
     <Build Include="dbo\Stored Procedures\spUsers_DeleteById.sql" />
     <Build Include="dbo\Stored Procedures\spCars_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spCars_GetById.sql" />
-    <Build Include="dbo\Stored Procedures\spCars_CreateForSale.sql" />
+    <Build Include="dbo\Stored Procedures\spCars_Create.sql" />
     <Build Include="dbo\Stored Procedures\spCars_UpdateById.sql" />
     <Build Include="dbo\Stored Procedures\spCars_DeleteById.sql" />
     <Build Include="dbo\Stored Procedures\spImages_Create.sql" />

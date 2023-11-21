@@ -1,6 +1,6 @@
 ﻿namespace MarketCarsLibrary.Models;
 
-public class Cars
+public class CarsModel
 {
     //[Id] INT NOT NULL PRIMARY KEY IDENTITY
     public int Id { get; set; }
@@ -36,5 +36,5 @@ public class Cars
     public string? CarState { get; set; }
 
     //[Price] MONEY NULL
-    public decimal Role { get; set; }
+    public decimal Price { get; set; }
 }
