@@ -1,11 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[spUsers_UpdateById]
-	@Id INT NOT NULL,
-	@UserName NVARCHAR(50) NOT NULL,
-	@PassWord NVARCHAR(50) NOT NULL,
-	@Name NVARCHAR(50) NOT NULL,
-	@Address NVARCHAR(50) NULL,
-	@Email NVARCHAR(50) NOT NULL,
-	@PhoneNumber NVARCHAR(50) NULL
+	@Id INT,
+	@UserName NVARCHAR(50),
+	@PassWord NVARCHAR(50),
+	@Name NVARCHAR(50),
+	@Address NVARCHAR(50),
+	@Email NVARCHAR(50),
+	@PhoneNumber NVARCHAR(50)
 AS
 BEGIN
 	set nocount on;

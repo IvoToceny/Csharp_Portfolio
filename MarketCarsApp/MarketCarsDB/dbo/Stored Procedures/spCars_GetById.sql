@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spCars_GetById]
-	@Id INT NOT NULL
+	@Id INT
 AS
 BEGIN
 	set nocount on;

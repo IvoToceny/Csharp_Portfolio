@@ -1,15 +1,15 @@
 ﻿CREATE PROCEDURE [dbo].[spCars_Create]
-	@OwnerId INT NOT NULL,
-	@ForSale BIT NOT NULL,
-	@Name NVARCHAR(100) NOT NULL,
-	@Manufacturer NVARCHAR(50) NOT NULL,
-	@Bodywork NVARCHAR(20) NOT NULL,
-	@Color NVARCHAR(20) NOT NULL,
-	@EngineType NVARCHAR(50) NULL,
-	@HorsePower NVARCHAR(20) NULL,
-	@Mileage INT NOT NULL,
-	@CarState NVARCHAR(20) NULL,
-	@Price MONEY NULL,
+	@OwnerId INT,
+	@ForSale BIT,
+	@Name NVARCHAR(100),
+	@Manufacturer NVARCHAR(50),
+	@Bodywork NVARCHAR(20),
+	@Color NVARCHAR(20),
+	@EngineType NVARCHAR(50),
+	@HorsePower NVARCHAR(20),
+	@Mileage INT,
+	@CarState NVARCHAR(20),
+	@Price MONEY,
     @Id INT output
 	
 AS

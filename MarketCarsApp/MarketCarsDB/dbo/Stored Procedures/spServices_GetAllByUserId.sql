@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spServices_GetAllByUserId]
-	@UserId INT NOT NULL
+	@UserId INT
 AS
 BEGIN
 	set nocount on;

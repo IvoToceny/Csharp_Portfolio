@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spImages_DeleteById]
-	@Id INT NOT NULL
+	@Id INT
 AS
 BEGIN
 	set nocount on;

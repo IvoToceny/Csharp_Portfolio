@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spImages_GetFirstByCarId]
-	@CarId INT NOT NULL,
-	@IsHeadPhoto BIT NOT NULL
+	@CarId INT,
+	@IsHeadPhoto BIT
 AS
 BEGIN
 	set nocount on;

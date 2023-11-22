@@ -1,12 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[spServices_Create]
-	@UserId INT NOT NULL,
-	@OrderDate DATETIME2 NOT NULL,
-	@ServiceDay DATETIME2 NOT NULL,
-	@ServiceTime NVARCHAR(50) NOT NULL, 
-	@ServiceFinishEstimate DATETIME2 NOT NULL, 
-	@ServiceDescription NVARCHAR(400) NULL,
-	@CarId INT NOT NULL,
-	@StateOfOrder NVARCHAR(50) NOT NULL,
+	@UserId INT,
+	@OrderDate DATETIME2,
+	@ServiceDay DATETIME2,
+	@ServiceTime NVARCHAR(50), 
+	@ServiceFinishEstimate DATETIME2, 
+	@ServiceDescription NVARCHAR(400),
+	@CarId INT,
+	@StateOfOrder NVARCHAR(50),
 	@Id INT output
 AS
 BEGIN

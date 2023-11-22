@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spImages_GetAllByCarId]
-	@CarId INT NOT NULL
+	@CarId INT
 AS
 BEGIN
 	set nocount on;

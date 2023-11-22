@@ -28,7 +28,7 @@ public class SqlDb : IDataAccess
         }
     }
 
-    public async Task<int> LoadData<U>(string storedProcedure, U parameters, string connectionStringName)
+    public async Task<int> SaveData<U>(string storedProcedure, U parameters, string connectionStringName)
     {
         var connectionString = config.GetConnectionString(connectionStringName);
 

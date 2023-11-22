@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[spImages_Create]
-	@CarId INT NOT NULL,
-	@Path NVARCHAR(100) NOT NULL,
-    @IsHeadPhoto BIT NOT NULL,
+	@CarId INT,
+	@Path NVARCHAR(100),
+    @IsHeadPhoto BIT,
     @Id INT output
 	
 AS
