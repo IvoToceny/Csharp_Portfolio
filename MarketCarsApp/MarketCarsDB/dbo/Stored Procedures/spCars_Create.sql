@@ -7,9 +7,9 @@
 	@Color NVARCHAR(20),
 	@EngineType NVARCHAR(50),
 	@HorsePower NVARCHAR(20),
-	@Mileage INT,
+	@Mileage NVARCHAR(50),
 	@CarState NVARCHAR(20),
-	@Price MONEY,
+	@Price NVARCHAR(20),
     @Id INT output
 	
 AS
@@ -23,4 +23,9 @@ BEGIN
 		@Mileage, @CarState, @Price);
 
     set @Id = SCOPE_IDENTITY();
+
+	select [Id], [OwnerId], [ForSale], [Name], [Manufacturer], [Bodywork], [Color],
+		[EngineType], [HorsePower], [Mileage], [CarState], [Price]
+	from dbo.Cars
+	where Id = @Id;
 END

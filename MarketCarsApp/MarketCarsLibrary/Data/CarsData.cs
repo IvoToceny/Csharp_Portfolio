@@ -17,7 +17,7 @@ public class CarsData : ICarsData
         this.connectionString = connectionString;
     }
 
-    public async Task<int> Create(CarsModel carsModel)
+    public async Task<CarsModel> Create(CarsModel carsModel)
     {
         DynamicParameters p = new DynamicParameters();
 
@@ -34,9 +34,9 @@ public class CarsData : ICarsData
         p.Add("Price", carsModel.Price);
         p.Add("Id", DbType.Int32, direction: ParameterDirection.Output);
 
-        await dataAccess.SaveData("dbo.spCars_Create", p, connectionString.SqlConnectionName);
+        var cars = await dataAccess.LoadData<CarsModel, dynamic>("dbo.spCars_Create", p, connectionString.SqlConnectionName);
 
-        return p.Get<int>("Id");
+        return cars.FirstOrDefault()!;
     }
 
     public Task<int> DeleteById(int id)
@@ -56,7 +56,7 @@ public class CarsData : ICarsData
         return cars.FirstOrDefault()!;
     }
 
-    public Task<int> UpdateById(CarsModel carsModel)
+    public async Task<CarsModel> UpdateById(CarsModel carsModel)
     {
         DynamicParameters p = new DynamicParameters();
 
@@ -72,6 +72,8 @@ public class CarsData : ICarsData
         p.Add("CarState", carsModel.CarState);
         p.Add("Price", carsModel.Price);
 
-        return dataAccess.SaveData("dbo.spCars_UpdateById", p, connectionString.SqlConnectionName);
+        var car = await dataAccess.LoadData<CarsModel, dynamic>("dbo.spCars_UpdateById", p, connectionString.SqlConnectionName);
+
+        return car.FirstOrDefault()!;
     }
 }

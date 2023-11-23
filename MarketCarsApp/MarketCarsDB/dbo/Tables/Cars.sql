@@ -10,7 +10,7 @@
 	[Color] NVARCHAR(20) NOT NULL,
 	[EngineType] NVARCHAR(50) NULL,
 	[HorsePower] NVARCHAR(20) NULL,
-	[Mileage] INT NOT NULL,
+	[Mileage] NVARCHAR(20) NOT NULL,
 	[CarState] NVARCHAR(20) NULL,
-	[Price] MONEY NULL
+	[Price] NVARCHAR(50) NULL
 )

@@ -8,8 +8,8 @@
     <Title>MarketCarsLibrary</Title>
     <Description>Portfolio Class library DB for market cars app</Description>
     <RepositoryUrl>https://github.com/IvoToceny/Csharp_Portfolio/tree/master</RepositoryUrl>
-    <AssemblyVersion>1.0.7</AssemblyVersion>
-    <Version>1.0.7</Version>
+    <AssemblyVersion>1.0.9</AssemblyVersion>
+    <Version>1.0.9</Version>
   </PropertyGroup>
 
   <ItemGroup>

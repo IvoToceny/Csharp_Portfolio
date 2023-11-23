@@ -7,9 +7,9 @@
 	@Color NVARCHAR(20),
 	@EngineType NVARCHAR(50),
 	@HorsePower NVARCHAR(20),
-	@Mileage INT,
+	@Mileage NVARCHAR(50),
 	@CarState NVARCHAR(20),
-	@Price MONEY
+	@Price NVARCHAR(20)
 AS
 BEGIN
 	set nocount on;
@@ -18,5 +18,10 @@ BEGIN
 		[Bodywork] = @Bodywork, [Color] = @Color, [EngineType] = @EngineType,
 		[HorsePower] = @HorsePower, [Mileage] = @Mileage,
 		[CarState] = @CarState, [Price] = @Price
-	where Id = @Id
+	where Id = @Id;
+
+	select [Id], [OwnerId], [ForSale], [Name], [Manufacturer], [Bodywork], [Color],
+		[EngineType], [HorsePower], [Mileage], [CarState], [Price]
+	from dbo.Cars
+	where Id = @Id;
 END

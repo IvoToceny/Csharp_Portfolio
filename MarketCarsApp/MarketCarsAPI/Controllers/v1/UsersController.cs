@@ -9,10 +9,10 @@ namespace MarketCarsAPI.Controllers.v1;
 
 [Route("api/[controller]")]
 [ApiController]
-public class UsersControler : ControllerBase
+public class UsersController : ControllerBase
 {
     private IUsersData usersData { get; set; }
-    public UsersControler(IUsersData usersData)
+    public UsersController(IUsersData usersData)
     {
         this.usersData = usersData;
     }
