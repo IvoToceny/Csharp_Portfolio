@@ -27,27 +27,43 @@ public class CarsController : ControllerBase
 
         if (cars == null)
         {
-            return BadRequest("Could not get cars");
+            return BadRequest("Could not get all cars");
         }
 
         return Ok(cars);
     }
 
     //// GET api/Cars/5
-    //[HttpGet("{id}")]
-    //[ProducesResponseType(StatusCodes.Status200OK)]
-    //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-    //public async Task<ActionResult<CarsModel>> Get(int id)
-    //{
-    //    var user = await carsData.GetUserById(id);
+    [HttpGet("{userId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<List<CarsModel>>> Get(int userId)
+    {
+        var cars = await carsData.GetAllByUserId(userId);
 
-    //    if (user == null)
-    //    {
-    //        return BadRequest("Could not get a user, id does not exist");
-    //    }
+        if (cars == null)
+        {
+            return BadRequest("Could not get all cars of the owner");
+        }
 
-    //    return Ok(user);
-    //}
+        return Ok(cars);
+    }
+
+    //// GET api/Cars/5/3
+    [HttpGet("{userId}/{carId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<CarsModel>> Get(int userId, int carId)
+    {
+        var car = await carsData.GetAllByUserAndCarId(userId, carId);
+
+        if (car == null)
+        {
+            return BadRequest("Could not get specific car of the owner");
+        }
+
+        return Ok(car);
+    }
 
     // POST api/Cars
     [HttpPost]
@@ -66,33 +82,25 @@ public class CarsController : ControllerBase
         return Ok(car);
     }
 
-    //// PUT api/Cars
-    //[HttpPut]
-    //[ValidateModel]
-    //[ProducesResponseType(StatusCodes.Status200OK)]
-    //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-    //public async Task<ActionResult<CarsModel>> Put([FromBody] CarsModel CarsModel)
-    //{
-    //    var user = await carsData.UpdateById(CarsModel);
+    // PUT api/Cars
+    [HttpPut]
+    [ValidateModel]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<CarsModel>> Put([FromBody] CarsModel CarsModel)
+    {
+        var user = await carsData.UpdateById(CarsModel);
 
-    //    return Ok(user);
-    //}
+        return Ok(user);
+    }
 
-    //// DELETE api/Cars/5
-    //[HttpDelete("{id}")]
-    //[ProducesResponseType(StatusCodes.Status200OK)]
-    //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-    //public async Task<ActionResult<int>> Delete(int id)
-    //{
-    //    var user = await carsData.GetUserById(id);
+    // DELETE api/Cars/5
+    [HttpDelete("{carId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<int>> Delete(int carId)
+    {
+        await carsData.DeleteById(carId);
 
-    //    if (user == null)
-    //    {
-    //        return BadRequest("Id does not exist");
-    //    }
-
-    //    await carsData.DeleteById(id);
-
-    //    return Ok();
-    //}
+        return Ok();
+    }
 }

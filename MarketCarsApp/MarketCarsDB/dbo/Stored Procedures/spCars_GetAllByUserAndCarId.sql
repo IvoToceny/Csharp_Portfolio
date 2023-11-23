@@ -1,5 +1,6 @@
-﻿CREATE PROCEDURE [dbo].[spCars_GetById]
-	@Id INT
+﻿CREATE PROCEDURE [dbo].[spCars_GetAllByUserAndCarId]
+	@Id INT,
+	@OwnerId INT
 AS
 BEGIN
 	set nocount on;
@@ -7,5 +8,5 @@ BEGIN
 	select [Id], [OwnerId], [ForSale], [Name], [Manufacturer], [Bodywork], [Color],
 		[EngineType], [HorsePower], [Mileage], [CarState], [Price]
 	from dbo.Cars
-	where Id = @Id;
+	where OwnerId = @OwnerId AND Id = @Id;
 END

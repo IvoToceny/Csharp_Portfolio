@@ -49,11 +49,18 @@ public class CarsData : ICarsData
         return await dataAccess.LoadData<CarsModel, dynamic>("dbo.spCars_GetAll", new { }, connectionString.SqlConnectionName);
     }
 
-    public async Task<CarsModel> GetById(int id)
+    public async Task<List<CarsModel>> GetAllByUserId(int ownerId)
     {
-        var cars = await dataAccess.LoadData<CarsModel, dynamic>("dbo.spCars_GetById", new { Id = id }, connectionString.SqlConnectionName);
+        var cars = await dataAccess.LoadData<CarsModel, dynamic>("dbo.spCars_GetAllByUserId", new { OwnerId = ownerId }, connectionString.SqlConnectionName);
 
-        return cars.FirstOrDefault()!;
+        return cars;
+    }
+
+    public async Task<CarsModel> GetAllByUserAndCarId(int userId, int carId)
+    {
+        var car = await dataAccess.LoadData<CarsModel, dynamic>("dbo.spCars_GetAllByUserAndCarId", new { Id = carId, OwnerId = userId }, connectionString.SqlConnectionName);
+
+        return car.FirstOrDefault()!;
     }
 
     public async Task<CarsModel> UpdateById(CarsModel carsModel)
