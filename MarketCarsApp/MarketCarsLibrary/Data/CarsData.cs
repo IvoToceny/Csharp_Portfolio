@@ -1,11 +1,12 @@
 ﻿using Dapper;
+using MarketCarsLibrary.Data.Interfaces;
 using MarketCarsLibrary.Db;
 using MarketCarsLibrary.Models;
 using System.Data;
 
 namespace MarketCarsLibrary.Data;
 
-public class CarsData
+public class CarsData : ICarsData
 {
     private IDataAccess dataAccess;
     private ConnectionStringData connectionString;
@@ -45,7 +46,7 @@ public class CarsData
 
     public async Task<List<CarsModel>> GetAll()
     {
-        return await dataAccess.LoadData<CarsModel, dynamic>("dbo.spCars_GetAll", new {}, connectionString.SqlConnectionName);
+        return await dataAccess.LoadData<CarsModel, dynamic>("dbo.spCars_GetAll", new { }, connectionString.SqlConnectionName);
     }
 
     public async Task<CarsModel> GetById(int id)

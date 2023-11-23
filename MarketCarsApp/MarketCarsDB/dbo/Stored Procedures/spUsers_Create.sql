@@ -19,4 +19,8 @@ BEGIN
     @Role);
 
     set @Id = SCOPE_IDENTITY();
+
+	select [Id], [UserName], [PassWord], [Name], [Address], [Email], [PhoneNumber], [Role]
+	from dbo.Users
+	where Id = @Id;
 END

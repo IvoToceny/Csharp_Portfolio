@@ -1,16 +1,12 @@
 ﻿using Dapper;
+using MarketCarsLibrary.Data.Interfaces;
 using MarketCarsLibrary.Db;
 using MarketCarsLibrary.Models;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarketCarsLibrary.Data;
 
-public class ServicesData
+public class ServicesData : IServicesData
 {
     private IDataAccess dataAccess;
     private ConnectionStringData connectionString;

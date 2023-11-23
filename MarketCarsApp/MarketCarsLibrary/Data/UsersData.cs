@@ -1,10 +1,11 @@
 ﻿using Dapper;
+using MarketCarsLibrary.Data.Interfaces;
 using MarketCarsLibrary.Db;
 using MarketCarsLibrary.Models;
 
 namespace MarketCarsLibrary.Data;
 
-public class UsersData
+public class UsersData : IUsersData
 {
     private IDataAccess dataAccess;
     private ConnectionStringData connectionString;
@@ -15,7 +16,7 @@ public class UsersData
         this.connectionString = connectionString;
     }
 
-    public async Task<int> Create(UsersModel usersModel)
+    public async Task<UsersModel> Create(UsersModel usersModel)
     {
         DynamicParameters p = new DynamicParameters();
 
@@ -26,10 +27,11 @@ public class UsersData
         p.Add("Address", usersModel.Address);
         p.Add("Email", usersModel.Email);
         p.Add("PhoneNumber", usersModel.PhoneNumber);
+        p.Add("Role", usersModel.Role);
 
-        await dataAccess.SaveData("dbo.spUsers_Create", p, connectionString.SqlConnectionName);
+        var user = await dataAccess.LoadData<UsersModel, dynamic>("dbo.spUsers_Create", p, connectionString.SqlConnectionName);
 
-        return p.Get<int>("Id");
+        return user.FirstOrDefault()!;
     }
 
     public Task<int> DeleteById(int id)
@@ -39,9 +41,9 @@ public class UsersData
 
     public async Task<UsersModel> GetUserById(int id)
     {
-        var cars = await dataAccess.LoadData<UsersModel, dynamic>("dbo.spUsers_GetUserById", new { Id = id }, connectionString.SqlConnectionName);
+        var users = await dataAccess.LoadData<UsersModel, dynamic>("dbo.spUsers_GetUserById", new { Id = id }, connectionString.SqlConnectionName);
 
-        return cars.FirstOrDefault()!;
+        return users.FirstOrDefault()!;
     }
 
     public Task<int> UpdateById(UsersModel usersModel)
@@ -55,6 +57,7 @@ public class UsersData
         p.Add("Address", usersModel.Address);
         p.Add("Email", usersModel.Email);
         p.Add("PhoneNumber", usersModel.PhoneNumber);
+        p.Add("Role", usersModel.Role);
 
         return dataAccess.SaveData("dbo.spUsers_UpdateById", p, connectionString.SqlConnectionName);
     }

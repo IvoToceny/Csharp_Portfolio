@@ -1,4 +1,7 @@
 ﻿using AspNetCoreRateLimit;
+using MarketCarsLibrary.Data;
+using MarketCarsLibrary.Data.Interfaces;
+using MarketCarsLibrary.Db;
 using Microsoft.OpenApi.Models;
 
 namespace MarketCarsAPI.StartupConfig;
@@ -66,11 +69,24 @@ public static class ServicesConfig
     public static void AddRateLimitServices(this WebApplicationBuilder builder)
     {
         builder.Services.Configure<IpRateLimitOptions>(
-            builder.Configuration.GetSection("IpRateLimiting"));
+        builder.Configuration.GetSection("IpRateLimiting"));
         builder.Services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
         builder.Services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
         builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
         builder.Services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
         builder.Services.AddInMemoryRateLimiting();
+    }
+
+    public static void AddDbAccessServices(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddSingleton(new ConnectionStringData 
+        {
+            SqlConnectionName = "Azure"
+        });
+        builder.Services.AddSingleton<IDataAccess, SqlDb>();
+        builder.Services.AddSingleton<ICarsData, CarsData>();
+        builder.Services.AddSingleton<IImagesData, ImagesData>();
+        builder.Services.AddSingleton<IServicesData, ServicesData>();
+        builder.Services.AddSingleton<IUsersData, UsersData>();
     }
 }

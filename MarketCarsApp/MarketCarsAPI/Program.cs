@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddDbAccessServices();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
