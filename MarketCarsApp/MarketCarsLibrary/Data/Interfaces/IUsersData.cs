@@ -7,6 +7,6 @@ namespace MarketCarsLibrary.Data.Interfaces
         Task<UsersModel> Create(UsersModel usersModel);
         Task<int> DeleteById(int id);
         Task<UsersModel> GetUserById(int id);
-        Task<int> UpdateById(UsersModel usersModel);
+        Task<UsersModel> UpdateById(UsersModel usersModel);
     }
 }

@@ -50,11 +50,17 @@ public class UsersControler : ControllerBase
         return Ok(user);
     }
 
-    // PUT api/Users/5
-    //[HttpPut("{id}")]
-    //public void Put(int id, [FromBody] UsersModel usersModel)
-    //{
-    //}
+    // PUT api/Users
+    [HttpPut]
+    [ValidateModel]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<UsersModel>> Put([FromBody] UsersModel usersModel)
+    {
+        var user = await usersData.UpdateById(usersModel);
+
+        return Ok(user);
+    }
 
     // DELETE api/Users/5
     [HttpDelete("{id}")]

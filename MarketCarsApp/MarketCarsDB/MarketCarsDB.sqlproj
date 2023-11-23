@@ -67,7 +67,6 @@
     <Build Include="dbo\Tables\Services.sql" />
     <Build Include="dbo\Stored Procedures\spUsers_GetUserById.sql" />
     <Build Include="dbo\Stored Procedures\spUsers_Create.sql" />
-    <Build Include="dbo\Stored Procedures\spUsers_UpdateById.sql" />
     <Build Include="dbo\Stored Procedures\spUsers_DeleteById.sql" />
     <Build Include="dbo\Stored Procedures\spCars_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spCars_GetById.sql" />
@@ -82,5 +81,6 @@
     <Build Include="dbo\Stored Procedures\spServices_GetById.sql" />
     <Build Include="dbo\Stored Procedures\spServices_GetAllByUserId.sql" />
     <Build Include="dbo\Stored Procedures\spServices_UpdateById.sql" />
+    <Build Include="dbo\Stored Procedures\spUsers_UpdateById.sql" />
   </ItemGroup>
 </Project>

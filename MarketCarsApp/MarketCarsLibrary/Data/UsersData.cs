@@ -46,7 +46,7 @@ public class UsersData : IUsersData
         return users.FirstOrDefault()!;
     }
 
-    public Task<int> UpdateById(UsersModel usersModel)
+    public async Task<UsersModel> UpdateById(UsersModel usersModel)
     {
         DynamicParameters p = new DynamicParameters();
 
@@ -59,6 +59,8 @@ public class UsersData : IUsersData
         p.Add("PhoneNumber", usersModel.PhoneNumber);
         p.Add("Role", usersModel.Role);
 
-        return dataAccess.SaveData("dbo.spUsers_UpdateById", p, connectionString.SqlConnectionName);
+        var user = await dataAccess.LoadData<UsersModel, dynamic>("dbo.spUsers_UpdateById", p, connectionString.SqlConnectionName);
+
+        return user.FirstOrDefault()!;
     }
 }
