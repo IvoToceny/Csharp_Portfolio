@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace MarketCarsAPI.Controllers.vNeutral;
+namespace MarketCarsAPI.Models;
 
 public class ValidateModelAttribute : ActionFilterAttribute
 {

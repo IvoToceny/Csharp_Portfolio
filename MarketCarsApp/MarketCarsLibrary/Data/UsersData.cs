@@ -7,8 +7,8 @@ namespace MarketCarsLibrary.Data;
 
 public class UsersData : IUsersData
 {
-    private IDataAccess dataAccess;
-    private ConnectionStringData connectionString;
+    private readonly IDataAccess dataAccess;
+    private readonly ConnectionStringData connectionString;
 
     public UsersData(IDataAccess dataAccess, ConnectionStringData connectionString)
     {
@@ -18,7 +18,7 @@ public class UsersData : IUsersData
 
     public async Task<UsersModel> Create(UsersModel usersModel)
     {
-        DynamicParameters p = new DynamicParameters();
+        DynamicParameters p = new();
 
         p.Add("Id", usersModel.Id);
         p.Add("UserName", usersModel.UserName);
@@ -48,7 +48,7 @@ public class UsersData : IUsersData
 
     public async Task<UsersModel> UpdateById(UsersModel usersModel)
     {
-        DynamicParameters p = new DynamicParameters();
+        DynamicParameters p = new();
 
         p.Add("Id", usersModel.Id);
         p.Add("UserName", usersModel.UserName);

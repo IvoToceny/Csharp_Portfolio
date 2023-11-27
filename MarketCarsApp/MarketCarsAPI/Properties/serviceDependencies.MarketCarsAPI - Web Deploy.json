@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/MarketCarsAPI/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsAzure_CD27231E99",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/marketcarsserver/databases/MarketCarsDB",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:Azure",
+      "dynamicId": null
+    },
+    "storage1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/MarketCarsAPI/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsBlobStorage_9B282597BE, /subscriptions/30a59e16-edc2-4e9d-8f52-a0cc76ddf02e/resourcegroups/DemoTesting/providers/Microsoft.Web/sites/MarketCarsAPI/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsBlobStorage_0E78E8C926",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/marketcarsstorage",
+      "type": "storage.azure",
+      "connectionId": "ConnectionStrings:BlobStorage"
+    },
+    "apis1": {
+      "apiEndpoint": "https://marketappapimanagment.azure-api.net/",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/MarketAppApiManagment/apis/marketcars-api-v1",
+      "type": "apis.azure"
+    }
+  }
+}

@@ -14,7 +14,7 @@ public static class ServicesConfig
         {
             var title = "MarketCars API";
             var description = "This is a Web API for MarketCars App that controls data access to MSSQL using Dapper," +
-            " Authentication and Authorization by Azure Active Directory, Files control through Azure Blob Storage and Azure SQL Database to store tables, procedures and data there. " +
+            " Authentication by Azure B2C inside BlazorServer, Files control through Azure Blob Storage for uploading images of cars for selling, Azure SQL Database to store tables, procedures and data there. " +
             " API is secured by Rate Limiting, Caching and Data Validation. " +
             "This is a Demo App for my Portfolio. Feel free to use";
             var terms = new Uri("https://localhost:7136/terms");
@@ -56,7 +56,7 @@ public static class ServicesConfig
     public static void AddHealthCheckServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddHealthChecks()
-            .AddSqlServer(builder.Configuration.GetConnectionString("Default")!);
+            .AddSqlServer(builder.Configuration.GetConnectionString("Azure")!);
 
         builder.Services.AddHealthChecksUI(opts =>
         {

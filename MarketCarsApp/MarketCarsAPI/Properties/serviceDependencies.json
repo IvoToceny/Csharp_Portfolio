@@ -1,3 +1,25 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Azure",
+      "dynamicId": null
+    },
+    "storage2": {
+      "ignored": "true",
+      "type": "storage",
+      "connectionId": "FilesStorage:ConnectionString"
+    },
+    "storage1": {
+      "type": "storage",
+      "connectionId": "ConnectionStrings:BlobStorage"
+    },
+    "identityapp1": {
+      "ignored": "true",
+      "type": "identityapp"
+    },
+    "apis1": {
+      "type": "apis"
+    }
+  }
 }

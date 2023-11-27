@@ -1,4 +1,5 @@
-﻿using MarketCarsAPI.Controllers.vNeutral;
+﻿using Asp.Versioning;
+using MarketCarsAPI.Models;
 using MarketCarsLibrary.Data;
 using MarketCarsLibrary.Data.Interfaces;
 using MarketCarsLibrary.Db;
@@ -7,8 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MarketCarsAPI.Controllers.v1;
 
-[Route("api/[controller]")]
+[Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]
+[ApiVersion("1.0")]
 public class UsersController : ControllerBase
 {
     private IUsersData usersData { get; set; }

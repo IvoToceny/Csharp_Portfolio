@@ -8,8 +8,8 @@ namespace MarketCarsLibrary.Data;
 
 public class CarsData : ICarsData
 {
-    private IDataAccess dataAccess;
-    private ConnectionStringData connectionString;
+    private readonly IDataAccess dataAccess;
+    private readonly ConnectionStringData connectionString;
 
     public CarsData(IDataAccess dataAccess, ConnectionStringData connectionString)
     {
@@ -19,7 +19,7 @@ public class CarsData : ICarsData
 
     public async Task<CarsModel> Create(CarsModel carsModel)
     {
-        DynamicParameters p = new DynamicParameters();
+        DynamicParameters p = new();
 
         p.Add("OwnerId", carsModel.OwnerId);
         p.Add("ForSale", carsModel.ForSale);
@@ -65,7 +65,7 @@ public class CarsData : ICarsData
 
     public async Task<CarsModel> UpdateById(CarsModel carsModel)
     {
-        DynamicParameters p = new DynamicParameters();
+        DynamicParameters p = new();
 
         p.Add("Id", carsModel.Id);
         p.Add("ForSale", carsModel.ForSale);
