@@ -8,9 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddDbAccessServices();
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-
 builder.AddVersioningServices();
 
 builder.Services.AddSingleton<FileService>();
@@ -36,8 +33,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseResponseCaching();
-
-app.UseAuthorization();
 
 app.MapControllers();
 
