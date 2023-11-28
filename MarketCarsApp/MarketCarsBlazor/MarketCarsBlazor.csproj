@@ -4,11 +4,14 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>eb57fffe-994a-4fc0-8208-940db4041d80</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Identity.Web" Version="2.15.5" />
-    <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.15.5" />
+    <PackageReference Include="MarketCarsLibrary" Version="1.0.12" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="2.16.0" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.16.0" />
+    <PackageReference Include="System.Net.Http.Json" Version="8.0.0" />
   </ItemGroup>
 
 </Project>

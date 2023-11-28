@@ -1,25 +1,21 @@
 using MarketCarsBlazor.Components;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using MarketCarsBlazor.StartupConfig;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Identity.Web;
-using Microsoft.Identity.Web.UI;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-    .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAdB2C"));
-
-builder.Services.AddControllersWithViews().AddMicrosoftIdentityUI();
-
-//builder.Services.AddAuthorization(options =>
-//{
-//    options.FallbackPolicy = options.DefaultPolicy;
-//});
+builder.AddAuthenticationServices();
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents().AddMicrosoftIdentityConsentHandler();
 
 builder.Services.AddRazorPages();
+
+builder.Services.AddHttpClient("api", opts =>
+{
+    opts.BaseAddress = new Uri(builder.Configuration.GetValue<string>("ApiUrl")!);
+});
 
 var app = builder.Build();
 

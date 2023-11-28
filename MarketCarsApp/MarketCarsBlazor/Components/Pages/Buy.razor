@@ -1,0 +1,35 @@
+﻿@page "/Buy"
+
+@using System.Net.Http.Json
+@using MarketCarsLibrary.Models
+@inject IHttpClientFactory factory
+
+<PageTitle>Buy</PageTitle>
+
+<h1>List of buyable cars:</h1>
+
+@if (cars == null)
+{
+    <h4>Loading...</h4>
+}
+else
+{
+    <ul>
+        @foreach(CarsModel car in cars)
+        {
+            <li>@car.Name</li>
+        }
+    </ul>
+}
+
+@code {
+    private HttpClient? client;
+    private List<CarsModel>? cars;
+
+    protected override async Task OnInitializedAsync()
+    {
+        client = factory.CreateClient("api");
+
+        cars = await client.GetFromJsonAsync<List<CarsModel>>("Cars");
+    }
+}
