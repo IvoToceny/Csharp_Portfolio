@@ -1,0 +1,44 @@
+﻿<AuthorizeView>
+    <Authorized>
+        <div class="navbar">
+            <div class="navbar-left">
+                <img src="images/MarketCarsLogo.png" />
+                <h2>MarketCars</h2>
+            </div>
+
+            <div class="navbar-center">
+                <a href="/">Home</a>
+                <a href="/Buy">Buy</a>
+                <a href="/Sell">Sell</a>
+                <a href="/Service">Service</a>
+                <a href="/Contact">Contact</a>
+            </div>
+
+            <div class="navbar-right" >
+                
+                <a href="/Profile">Profile</a>
+                <a href="MicrosoftIdentity/Account/SignOut">Log Out</a>
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="navbar">
+            <div class="navbar-left">
+                <img src="images/MarketCarsLogo.png" />
+                <h2>MarketCars</h2>
+            </div>
+
+            <div class="navbar-center">
+                <a href="/">Home</a>
+                <a href="/Buy">Buy</a>
+                <a href="/Contact">Contact</a>
+            </div>
+
+            <div class="navbar-right">
+                <a href="MicrosoftIdentity/Account/SignIn">Log In</a>
+            </div>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+@* @context.User.Claims.FirstOrDefault(claim => claim.Type.Contains("id"))?.Value *@

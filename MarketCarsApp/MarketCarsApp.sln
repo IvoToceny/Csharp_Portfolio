@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketCarsLibrary", "Market
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MarketCarsDB", "MarketCarsDB\MarketCarsDB.sqlproj", "{4C70E76A-8C57-4C98-99F2-151B0D2D0875}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketCarsBlazor", "MarketCarsBlazor\MarketCarsBlazor.csproj", "{B3B51F05-F182-4E1C-A47F-E2AA39C16294}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketCarsBlazor", "MarketCarsBlazor\MarketCarsBlazor.csproj", "{B3B51F05-F182-4E1C-A47F-E2AA39C16294}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

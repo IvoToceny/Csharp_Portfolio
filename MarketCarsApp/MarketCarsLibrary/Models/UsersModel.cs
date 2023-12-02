@@ -28,8 +28,8 @@ public class UsersModel
     [MinLength(2, ErrorMessage = "Name needs to be longer than 1 characters")]
     public string? Name { get; set; }
 
-    //[Address] NVARCHAR(50) NULL,
-    public string? Address { get; set; }
+    //[City] NVARCHAR(50) NULL,
+    public string? City { get; set; }
 
     //[Email] NVARCHAR(50) NOT NULL,
     [Required]

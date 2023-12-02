@@ -1,4 +1,4 @@
-﻿@page "/Buy"
+﻿@page "/buy"
 
 @using System.Net.Http.Json
 @using MarketCarsLibrary.Models
@@ -14,12 +14,10 @@
 }
 else
 {
-    <ul>
-        @foreach(CarsModel car in cars)
-        {
-            <li>@car.Name</li>
-        }
-    </ul>
+    @foreach(CarsModel car in cars)
+    {
+    <h4>@car.Name</h4>
+    }
 }
 
 @code {

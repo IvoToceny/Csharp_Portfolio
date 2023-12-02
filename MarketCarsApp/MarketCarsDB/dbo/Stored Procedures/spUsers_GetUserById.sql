@@ -4,7 +4,7 @@ AS
 BEGIN
 	set nocount on;
 
-	select [Id], [UserName], [PassWord], [Name], [Address], [Email], [PhoneNumber], [Role]
+	select [Id], [UserName], [PassWord], [Name], [City], [Email], [PhoneNumber], [Role]
 	from dbo.Users
 	where Id = @Id;
 END

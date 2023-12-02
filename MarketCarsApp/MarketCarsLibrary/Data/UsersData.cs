@@ -24,7 +24,7 @@ public class UsersData : IUsersData
         p.Add("UserName", usersModel.UserName);
         p.Add("PassWord", usersModel.PassWord);
         p.Add("Name", usersModel.Name);
-        p.Add("Address", usersModel.Address);
+        p.Add("City", usersModel.City);
         p.Add("Email", usersModel.Email);
         p.Add("PhoneNumber", usersModel.PhoneNumber);
         p.Add("Role", usersModel.Role);
@@ -54,7 +54,7 @@ public class UsersData : IUsersData
         p.Add("UserName", usersModel.UserName);
         p.Add("Password", usersModel.PassWord);
         p.Add("Name", usersModel.Name);
-        p.Add("Address", usersModel.Address);
+        p.Add("City", usersModel.City);
         p.Add("Email", usersModel.Email);
         p.Add("PhoneNumber", usersModel.PhoneNumber);
         p.Add("Role", usersModel.Role);
