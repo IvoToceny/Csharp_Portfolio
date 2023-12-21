@@ -1,0 +1,9 @@
+This is a MarketCars App
+
+Which uses Web API, that controls data access to MSSQL using Dapper, Authentication by Azure B2C inside BlazorServer, 
+Files control through Azure Blob Storage for uploading images of cars for selling, Azure SQL Database to store tables, 
+procedures and data there. API is secured by Rate Limiting, Caching and Data Validation. 
+
+This is a Demo App for my Portfolio. 
+
+All Web API, Blazor Server, Azure B2C, Azure Blob Storage, Azure SQL Database are all published on azure and working. 
