@@ -103,10 +103,8 @@ public class BlobsController : ControllerBase
 
     private string? GetUserId()
     {
-        //var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
-        //return userIdClaim?.Value;
-
-        return "2";
+        var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+        return userIdClaim?.Value;
     }
 
     private async Task<IEnumerable<string>> ListBlobsAsync(CloudBlobContainer container)

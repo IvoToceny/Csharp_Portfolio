@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spServices_Create]
-	@UserId INT,
+	@UserId NVARCHAR(100),
 	@OrderDate DATETIME2,
 	@ServiceDay DATETIME2,
 	@ServiceTime NVARCHAR(50), 

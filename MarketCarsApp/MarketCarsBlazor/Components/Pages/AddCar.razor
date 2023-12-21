@@ -1,0 +1,204 @@
+﻿@page "/AddCar"
+
+@rendermode RenderMode.InteractiveServer
+
+@using System.Net.Http.Json
+@using MarketCarsLibrary.Models
+@using System.Security.Claims
+@inject IHttpClientFactory factory
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<PageTitle>AddCar</PageTitle>
+
+@if(errors.Count > 0)
+{
+    <h2>Errors:</h2>
+    <ul class="text-danger">
+        @foreach(string error in errors)
+        {
+            <li>@error</li>
+        }
+    </ul>
+}
+
+<h2>Add new car to your profile:</h2>
+
+<EditForm Model="@carsModel" OnSubmit="AddNewCar" FormName="AddNewCarForm">
+    <DataAnnotationsValidator/>
+    <ValidationSummary Model="@carsModel"/>
+
+    <div class="mb-3">
+        <label class="form-label">Is car for sale?</label>
+        <InputCheckbox @bind-Value="carsModel.ForSale" class="form-control"/>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Name of the Car:</label>
+        <InputText @bind-Value="carsModel.Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Manufacturer:</label>
+        <InputText @bind-Value="carsModel.Manufacturer" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Bodywork Type:</label>
+        <InputSelect @bind-Value="carsModel.Bodywork" class="form-control" OnChange="UpdateSelectedBodyWork">
+            <option value="">Select Bodywork Type</option>
+            @foreach (var bodyWorkType in bodyWorkTypes)
+            {
+                <option value="@bodyWorkType">@bodyWorkType</option>
+            }
+        </InputSelect>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Color:</label>
+        <InputText @bind-Value="carsModel.Color" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Engine Type:</label>
+        <InputSelect @bind-Value="selectedEngineType" class="form-control" OnChange="UpdateSelectedEngineType">
+            <option value="">Select Engine Type</option>
+            @foreach (var engineType in engineTypes)
+            {
+                <option value="@engineType">@engineType</option>
+            }
+        </InputSelect>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Horse Power:</label>
+        <InputText @bind-Value="carsModel.HorsePower" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Mileage:</label>
+        <InputText @bind-Value="carsModel.Mileage" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Car State:</label>
+        <InputSelect @bind-Value="carsModel.CarState" class="form-control" OnChange="UpdateCarState">
+            <option value="">Select Car State</option>
+            @foreach (var carState in carStates)
+            {
+                <option value="@carState">@carState</option>
+            }
+        </InputSelect>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Price (put also currency after value):</label>
+        <InputText @bind-Value="carsModel.Price" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Add photos (first will be main one):</label>
+        <InputFile OnChange="@HandleFileUpload" />
+    </div>
+
+    <div class="mb-3">
+        <input type="submit" value="Add new Car" class="btn-success"/> 
+    </div>
+</EditForm>
+
+<p>Selected Files:</p>
+<ul>
+    @if(photos.Count > 0)
+    {
+        @foreach (var file in photos)
+        {
+            <li>@file.Name</li>
+        }
+    }
+    
+</ul>
+
+@code {
+    private string selectedEngineType;
+    private HttpClient? client;
+    private CarsModel carsModel = new CarsModel();
+    private IEnumerable<Claim>? userClaims;
+    private List<string> bodyWorkTypes = GetBodyWorkTypes();
+    private List<string> engineTypes = GetEngineTypes();
+    private List<string> carStates = GetCarStates();
+    private List<string> errors = new List<string>();
+    private long maxFileSize = 1024 * 1024 * 5; // 5 MB
+    private int maxAllowedFiles = 10;
+    private List<IBrowserFile> photos = new List<IBrowserFile>();
+
+    private void HandleFileUpload(InputFileChangeEventArgs e)
+    {
+        if(e.FileCount > maxAllowedFiles)
+        {
+            errors.Add($"Error: Attempting to upload {e.FileCount} files, but only {maxAllowedFiles} files are allowed");
+            return;
+        }
+
+        foreach(IBrowserFile file in e.GetMultipleFiles(maxAllowedFiles))
+        {
+            if(file.Size > maxFileSize)
+            {
+                errors.Add($"Error: Failed to upload file: {file}, because it exceeds size. Max allowed size per file: {maxFileSize} allowed.");
+                return;
+            }
+        }
+
+        photos.AddRange(e.GetMultipleFiles(maxAllowedFiles));
+     }
+
+    private void UpdateSelectedEngineType()
+    {
+        carsModel.EngineType = selectedEngineType;
+    }
+
+    private void UpdateSelectedBodyWork(ChangeEventArgs args)
+    {
+        // Handle the change event if needed
+        // You can access the selected value using carModel.BodyWorkType
+    }
+
+    private void UpdateSelectedEngineType(ChangeEventArgs args)
+    {
+        // Handle the change event if needed
+        // You can access the selected value using carModel.BodyWorkType
+    }
+
+    private static List<string> GetBodyWorkTypes()
+    {
+        // Implement this method to return a list of bodywork types
+        return new List<string> { "Sedan", "SUV", "Hatchback", "Coupe", "Convertible",
+                                  "Wagon", "Van", "Minivan", "Truck", "Roadster",
+                                  "Limousine", "Pickup Truck", "Compact Car"};
+    }
+
+    private static List<string> GetEngineTypes()
+    {
+        // Implement this method to return a list of bodywork types
+        return new List<string> { "Diesel", "Petrol", "Electric", "Hybrid"};
+    }
+
+    private static List<string> GetCarStates()
+    {
+        // Implement this method to return a list of bodywork types
+        return new List<string> { "New", "Used", "Certified Pre-Owned", "Damaged", "Restored", "Classic", "Modified", "Fleet"};
+    }
+
+    private async Task AddNewCar()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        // Access user claims
+        userClaims = user.Claims;
+
+        string userId = userClaims.FirstOrDefault(claim => claim.Type.Contains("id"))?.Value!;
+        carsModel.OwnerId = userId;
+
+        client = factory.CreateClient("api");
+        await client.PostAsJsonAsync<CarsModel>("Cars", carsModel, CancellationToken.None);
+    }
+}

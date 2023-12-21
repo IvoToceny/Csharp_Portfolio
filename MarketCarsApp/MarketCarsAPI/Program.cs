@@ -30,6 +30,8 @@ app.UseSwaggerUI(opts =>
     opts.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
 });
 
+app.UseRouting();
+
 app.UseHttpsRedirection();
 
 app.UseResponseCaching();

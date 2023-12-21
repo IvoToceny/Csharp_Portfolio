@@ -1,8 +1,12 @@
-﻿@page "/buy"
+﻿@page "/Buy"
+
+@rendermode RenderMode.InteractiveServer
 
 @using System.Net.Http.Json
 @using MarketCarsLibrary.Models
 @inject IHttpClientFactory factory
+@inject ILogger<Buy> Logger
+@inject NavigationManager NavigationManager
 
 <PageTitle>Buy</PageTitle>
 
@@ -21,13 +25,21 @@ else
 }
 
 @code {
-    private HttpClient? client;
-    private List<CarsModel>? cars;
+    private HttpClient? client = null;
+    private List<CarsModel>? cars = null;
 
     protected override async Task OnInitializedAsync()
     {
-        client = factory.CreateClient("api");
-
-        cars = await client.GetFromJsonAsync<List<CarsModel>>("Cars");
+        try
+        {
+            client = factory.CreateClient("api");
+            cars = await client.GetFromJsonAsync<List<CarsModel>>("Cars");
+        }
+        catch (HttpRequestException ex)
+        {
+            // Log the exception
+            Logger.LogError(ex, "An error occurred during OnInitializedAsync");
+            NavigationManager.NavigateTo("/Error");
+        }
     }
 }

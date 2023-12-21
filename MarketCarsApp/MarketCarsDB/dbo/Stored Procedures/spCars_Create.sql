@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spCars_Create]
-	@OwnerId INT,
+	@OwnerId NVARCHAR(100),
 	@ForSale BIT,
 	@Name NVARCHAR(100),
 	@Manufacturer NVARCHAR(50),

@@ -49,14 +49,14 @@ public class CarsData : ICarsData
         return await dataAccess.LoadData<CarsModel, dynamic>("dbo.spCars_GetAll", new { }, connectionString.SqlConnectionName);
     }
 
-    public async Task<List<CarsModel>> GetAllByUserId(int ownerId)
+    public async Task<List<CarsModel>> GetAllByUserId(string ownerId)
     {
         var cars = await dataAccess.LoadData<CarsModel, dynamic>("dbo.spCars_GetAllByUserId", new { OwnerId = ownerId }, connectionString.SqlConnectionName);
 
         return cars;
     }
 
-    public async Task<CarsModel> GetAllByUserAndCarId(int userId, int carId)
+    public async Task<CarsModel> GetAllByUserAndCarId(string userId, int carId)
     {
         var car = await dataAccess.LoadData<CarsModel, dynamic>("dbo.spCars_GetAllByUserAndCarId", new { Id = carId, OwnerId = userId }, connectionString.SqlConnectionName);
 

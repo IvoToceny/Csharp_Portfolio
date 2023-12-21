@@ -87,6 +87,5 @@ public static class ServicesConfig
         builder.Services.AddSingleton<ICarsData, CarsData>();
         builder.Services.AddSingleton<IImagesData, ImagesData>();
         builder.Services.AddSingleton<IServicesData, ServicesData>();
-        builder.Services.AddSingleton<IUsersData, UsersData>();
     }
 }

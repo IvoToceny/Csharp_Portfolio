@@ -9,7 +9,7 @@ public class CarsModel
 
     //[OwnerId] INT NOT NULL
     [Required]
-    public int OwnerId { get; set; }
+    public string? OwnerId { get; set; }
 
     //[ForSale] BIT NOT NULL
     [Required]

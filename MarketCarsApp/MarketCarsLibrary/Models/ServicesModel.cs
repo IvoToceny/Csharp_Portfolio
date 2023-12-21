@@ -10,7 +10,7 @@ public class ServicesModel
 
     //[UserId] INT NOT NULL
     [Required]
-    public int UserId { get; set; }
+    public string? UserId { get; set; }
 
     //[OrderDate] DATETIME2 NOT NULL
     [Required]

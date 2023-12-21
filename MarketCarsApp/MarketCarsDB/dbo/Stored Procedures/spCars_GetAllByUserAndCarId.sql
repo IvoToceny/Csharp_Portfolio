@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spCars_GetAllByUserAndCarId]
 	@Id INT,
-	@OwnerId INT
+	@OwnerId NVARCHAR(100)
 AS
 BEGIN
 	set nocount on;

@@ -1,4 +1,5 @@
 using MarketCarsBlazor.Components;
+using MarketCarsBlazor.Components.Pages;
 using MarketCarsBlazor.StartupConfig;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Identity.Web;
@@ -9,6 +10,12 @@ builder.AddAuthenticationServices();
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents().AddMicrosoftIdentityConsentHandler();
+
+builder.Services.AddLogging(builder =>
+{
+    builder.AddConsole();
+    builder.AddDebug();
+});
 
 builder.Services.AddRazorPages();
 
@@ -22,7 +29,12 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    app.UseHttpsRedirection();
     app.UseHsts();
+}
+else
+{
+    app.UseDeveloperExceptionPage();
 }
 
 app.UseHttpsRedirection();
@@ -47,6 +59,8 @@ app.UseRewriter(
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+
+app.MapBlazorHub();
 
 app.MapControllers();
 

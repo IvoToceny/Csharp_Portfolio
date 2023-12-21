@@ -37,7 +37,7 @@ public class CarsController : ControllerBase
     [HttpGet("{userId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<List<CarsModel>>> Get(int userId)
+    public async Task<ActionResult<List<CarsModel>>> Get([FromRoute] string userId)
     {
         var cars = await carsData.GetAllByUserId(userId);
 
@@ -53,7 +53,7 @@ public class CarsController : ControllerBase
     [HttpGet("{userId}/{carId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<CarsModel>> Get(int userId, int carId)
+    public async Task<ActionResult<CarsModel>> Get([FromRoute] string userId,[FromRoute] int carId)
     {
         var car = await carsData.GetAllByUserAndCarId(userId, carId);
 
